@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * Add a `resolver` option when converting warnings to string, or when
   using the WarningPrinter. This will resolve file urls in warnings using
   `resolver.relative`, to avoid super long urls in warning messages.
+* Add `IndirectUrlResolver`, a URL resolver for very large codebases where
+  source files map in an arbitrary but predetermined fashion onto URL space.
+  This resolver is still experimental.
+  * It is generally true that if something has to be imported from
+    `polymer-analyzer/lib/...` then it's not yet stable. caveat importer.
 <!-- Add new, unreleased changes here. -->
 
 ## [3.0.0-pre.6] - 2017-12-18

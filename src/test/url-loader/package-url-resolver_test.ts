@@ -13,27 +13,10 @@
  */
 
 import {assert} from 'chai';
-import * as pathlib from 'path';
-import URI from 'vscode-uri/lib';
 
-import {FileRelativeUrl, ResolvedUrl} from '../../index';
+import {FileRelativeUrl} from '../../index';
 import {PackageUrlResolver} from '../../url-loader/package-url-resolver';
-import {fileRelativeUrl, noOpTag, resolvedUrl} from '../test-utils';
-
-/**
- * On posix systems file urls look like:
- *      file:///path/to/foo
- * On windows they look like:
- *      file:///c%3A/path/to/foo
- *
- * This will produce an OS-correct file url.
- */
-function rootedFileUrl(
-    strings: TemplateStringsArray, ...values: any[]): ResolvedUrl {
-  const root = URI.file(pathlib.resolve('/')).toString();
-  const text = noOpTag(strings, ...values) as FileRelativeUrl;
-  return (root + text) as ResolvedUrl;
-}
+import {fileRelativeUrl, resolvedUrl, rootedFileUrl} from '../test-utils';
 
 const packageRoot = rootedFileUrl`1/2/`;
 
