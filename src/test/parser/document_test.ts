@@ -15,7 +15,7 @@ import {assert} from 'chai';
 
 import {SourceRange} from '../../model/model';
 import {ParsedDocument, StringifyOptions} from '../../parser/document';
-import { resolvedUrl } from '../test-utils';
+import {resolvedUrl} from '../test-utils';
 
 class TestDocument extends ParsedDocument<null, null> {
   type: string;
